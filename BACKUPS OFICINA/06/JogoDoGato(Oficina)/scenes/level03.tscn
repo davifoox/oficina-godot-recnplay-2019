@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/ColorRectBlue.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/tileset16x16.tres" type="TileSet" id=2]
+[ext_resource path="res://scenes/Spikes.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Fish.tscn" type="PackedScene" id=5]
+
+[node name="level03" type="Node"]
+
+[node name="ColorRectBlue" parent="." instance=ExtResource( 1 )]
+margin_left = -193.048
+margin_top = -112.09
+margin_right = 206.952
+margin_bottom = 97.9096
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( -1, -1 )
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 131075, 0, 0, 131076, 0, 0, 262147, 10, 0, 262148, 1, 0, 262149, 1, 0, 262150, 1, 0, 262151, 10, 0, 327683, 10, 0, 327684, 10, 0, 327685, 10, 0, 327686, 10, 0, 327687, 10, 0, 393223, 1, 0, 393224, 1, 0, 393225, 1, 0, 393226, 1, 0 )
+
+[node name="Spikes" parent="." instance=ExtResource( 3 )]
+position = Vector2( 71.0276, 27.4298 )
+
+[node name="Spikes2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 92.5938, 59.5591 )
+
+[node name="Spikes5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 118.121, 59.1189 )
+
+[node name="Spikes3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 137.487, 91.6883 )
+
+[node name="Spikes4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 74.9888, 59.9992 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 160.646, 87.1451 )
+
+[node name="Fish" parent="." instance=ExtResource( 5 )]
+position = Vector2( 25.0872, 7.04202 )

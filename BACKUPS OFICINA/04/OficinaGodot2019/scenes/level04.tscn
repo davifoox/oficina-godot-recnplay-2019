@@ -1,0 +1,77 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://tiles/grass_and_dirt_tileset_with_collisions.tres" type="TileSet" id=1]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/House.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Friend.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scripts/Path.gd" type="Script" id=5]
+[ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 119, 175.5, 0, 0, 0, 0, 128, 522 )
+}
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 518.847, 328.379, 0, 0, 0, 0, 511.131, 768.212 )
+}
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1084.15, 163.53, 0, 0, 0, 0, 512.215, 155.673 )
+}
+
+[node name="level04" type="Node"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 128, 128 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 2, 2, 1, 2, 3, 0, 0, 4, 0, 1, 5, 0, 1, 6, 0, 1, 7, 0, 1, 8, 0, 1, 9, 0, 1, 10, 0, 2, 65536, 0, 65536, 65537, 0, 65538, 65538, 1, 2, 65539, 0, 65536, 65540, 0, 65537, 65541, 0, 65537, 65542, 0, 65537, 65543, 0, 196610, 65544, 0, 65537, 65545, 0, 3, 65546, 0, 131074, 65562, 0, 65537, 131072, 0, 65536, 131073, 0, 65538, 131074, 1, 0, 131075, 0, 65536, 131076, 0, 65537, 131077, 0, 3, 131078, 0, 131073, 131079, 0, 4, 131080, 0, 196608, 131081, 0, 65538, 131082, 1, 2, 196608, 0, 65536, 196609, 0, 65539, 196610, 0, 1, 196611, 0, 65540, 196612, 0, 65537, 196613, 0, 65538, 196614, 1, 2, 196615, 0, 65536, 196616, 0, 196608, 196617, 0, 65538, 196618, 1, 2, 262144, 0, 65536, 262145, 0, 3, 262146, 0, 131073, 262147, 0, 4, 262148, 0, 196608, 262149, 0, 65538, 262150, 1, 2, 262151, 0, 65536, 262152, 0, 196608, 262153, 0, 65539, 262154, 0, 2, 327680, 0, 65536, 327681, 0, 65538, 327682, 1, 0, 327683, 0, 65536, 327684, 0, 65537, 327685, 0, 65538, 327686, 1, 2, 327687, 0, 65536, 327688, 0, 196609, 327689, 0, 196608, 327690, 0, 65538, 393216, 0, 131072, 393217, 0, 131074, 393218, 1, 2, 393219, 0, 131072, 393220, 0, 131073, 393221, 0, 131074, 393222, 1, 2, 393223, 0, 131072, 393224, 0, 131073, 393225, 0, 131073, 393226, 0, 131074 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 135, 756 )
+
+[node name="House" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1219.5, 708.75 )
+next_level = "res://scenes/level05.tscn"
+
+[node name="Friend" parent="." instance=ExtResource( 4 )]
+position = Vector2( 634.5, 765 )
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource( 1 )
+script = ExtResource( 5 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 119, 175.5 )
+rotation = 1.54483
+
+[node name="Enemy" parent="Path2D/PathFollow2D" instance=ExtResource( 6 )]
+position = Vector2( -40.363, -5.79999 )
+rotation = -1.54483
+
+[node name="Path2D2" type="Path2D" parent="."]
+curve = SubResource( 2 )
+script = ExtResource( 5 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
+position = Vector2( 518.847, 328.379 )
+rotation = 1.58832
+
+[node name="Enemy" parent="Path2D2/PathFollow2D" instance=ExtResource( 6 )]
+position = Vector2( -39.6238, -0.585999 )
+rotation = -1.58832
+
+[node name="Path2D3" type="Path2D" parent="."]
+curve = SubResource( 3 )
+script = ExtResource( 5 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D3"]
+position = Vector2( 1084.15, 163.53 )
+rotation = -3.12786
+
+[node name="Enemy" parent="Path2D3/PathFollow2D" instance=ExtResource( 6 )]
+position = Vector2( -28.3154, -1.0639 )
+rotation = 3.12786

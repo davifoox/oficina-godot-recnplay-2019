@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/SimpleBackground.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fonts/pixel_x32.tres" type="DynamicFont" id=3]
+[ext_resource path="res://scenes/Friend.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/House.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scripts/Path.gd" type="Script" id=6]
+[ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=7]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 286.333, 552.225, 0, 0, 0, 0, 1088.24, 553.657 )
+}
+
+[node name="Tutorial" type="Node"]
+
+[node name="SimpleBackground" parent="." instance=ExtResource( 1 )]
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 221.984, 300.795 )
+
+[node name="LabelMovimento" type="Label" parent="."]
+margin_left = 142.202
+margin_top = 121.798
+margin_right = 320.202
+margin_bottom = 223.798
+custom_fonts/font = ExtResource( 3 )
+text = "Setas 
+para 
+mover"
+align = 1
+valign = 1
+
+[node name="LabelAmigo" type="Label" parent="."]
+margin_left = 955.605
+margin_top = 112.71
+margin_right = 1275.6
+margin_bottom = 214.71
+custom_fonts/font = ExtResource( 3 )
+text = "RESGATE
+O SEU AMIGO"
+align = 1
+valign = 1
+
+[node name="LabelInimigo" type="Label" parent="."]
+margin_left = 374.329
+margin_top = 403.721
+margin_right = 1041.33
+margin_bottom = 505.721
+custom_fonts/font = ExtResource( 3 )
+text = "CUIDADO COM O INIMIGO!"
+align = 1
+valign = 1
+
+[node name="LabelObJetivo" type="Label" parent="."]
+margin_left = 905.761
+margin_top = 675.883
+margin_right = 1081.76
+margin_bottom = 777.883
+custom_fonts/font = ExtResource( 3 )
+text = "VOLTE 
+PRA 
+CASA"
+align = 1
+valign = 1
+
+[node name="Friend" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1115.59, 297.642 )
+
+[node name="House" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1197.38, 681.622 )
+next_level = "res://scenes/Menu.tscn"
+
+[node name="Path2DInimigo" type="Path2D" parent="."]
+curve = SubResource( 1 )
+script = ExtResource( 6 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2DInimigo"]
+position = Vector2( 286.333, 552.225 )
+rotation = 0.00178405
+rotate = false
+
+[node name="Enemy" parent="Path2DInimigo/PathFollow2D" instance=ExtResource( 7 )]
+flipped = true
+

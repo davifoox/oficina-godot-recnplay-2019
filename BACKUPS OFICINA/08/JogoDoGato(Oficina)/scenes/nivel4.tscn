@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/ColorRectBlue.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/tileset16x16.tres" type="TileSet" id=2]
+[ext_resource path="res://scenes/Fish.tscn" type="PackedScene" id=3]
+
+[node name="nivel4" type="Node2D"]
+position = Vector2( -2.26413, 4.90559 )
+
+[node name="ColorRectBlue" parent="." instance=ExtResource( 1 )]
+margin_left = -165.509
+margin_top = -69.585
+margin_right = 234.491
+margin_bottom = 140.415
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+tile_data = PoolIntArray( 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65542, 0, 0, 65543, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0 )
+
+[node name="Fish" parent="." instance=ExtResource( 3 )]
+position = Vector2( 107.923, 7.92442 )

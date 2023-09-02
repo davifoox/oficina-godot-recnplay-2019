@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/ColorRectBlue.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://resources/tileset16x16.tres" type="TileSet" id=4]
+[ext_resource path="res://scenes/Fish.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Spikes.tscn" type="PackedScene" id=6]
+
+[node name="Level02" type="Node"]
+
+[node name="ColorRectBlue2" parent="." instance=ExtResource( 1 )]
+margin_left = -14.0359
+margin_top = -30.5498
+margin_right = 935.964
+margin_bottom = 388.45
+rect_rotation = 0.150559
+
+[node name="Background" parent="." instance=ExtResource( 2 )]
+
+[node name="Background2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 378.432, -6.10352e-005 )
+
+[node name="Background3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 569.82, 0.155121 )
+
+[node name="Background4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 188.353, -0.508286 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 32, 13 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 131082, 0, 0, 131083, 2, 0, 196644, 3, 0, 262149, 0, 0, 262150, 1, 0, 262151, 1, 0, 262152, 2, 0, 262158, 3, 0, 262160, 3, 0, 327709, 3, 0, 393217, 0, 0, 393218, 1, 0, 393219, 2, 0 )
+
+[node name="TileMap2" type="TileMap" parent="."]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 131082, 0, 0, 131083, 2, 0, 131091, 0, 0, 131092, 1, 0, 131093, 1, 0, 131094, 1, 0, 131095, 2, 0, 262149, 0, 0, 262150, 1, 0, 262151, 1, 0, 262152, 2, 0, 262158, 3, 0, 262160, 3, 0, 262170, 0, 0, 262171, 2, 0, 262178, 3, 0, 393217, 0, 0, 393218, 1, 0, 393219, 2, 0, 393247, 0, 0, 393248, 2, 0 )
+
+[node name="Fish" parent="." instance=ExtResource( 5 )]
+position = Vector2( 583.771, 42.7762 )
+next_scene = "res://scenes/Level02.tscn"
+
+[node name="Spikes" parent="." instance=ExtResource( 6 )]
+position = Vector2( 113.173, 60.8736 )
+
+[node name="Spikes2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 344.665, 28.2934 )
+
+[node name="Spikes3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 472.033, 77.1637 )

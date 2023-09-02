@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/ColorRectBlue.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/tileset16x16.tres" type="TileSet" id=2]
+[ext_resource path="res://scenes/Spikes.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Fish.tscn" type="PackedScene" id=5]
+
+[node name="Level01" type="Node"]
+
+[node name="ColorRectBlue" parent="." instance=ExtResource( 1 )]
+margin_left = -86.0
+margin_top = -111.0
+margin_right = 228.0
+margin_bottom = 98.0
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 131079, 3, 0, 196609, 0, 0, 196610, 1, 0, 196611, 2, 0, 327684, 0, 0, 327685, 1, 0, 327686, 1, 0, 327687, 2, 0 )
+
+[node name="Spikes" parent="." instance=ExtResource( 3 )]
+position = Vector2( 98.8901, 76 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 33, 16.4013 )
+
+[node name="Fish" parent="." instance=ExtResource( 5 )]
+position = Vector2( 120, 22 )
+next_scene = "res://scenes/Level02.tscn"

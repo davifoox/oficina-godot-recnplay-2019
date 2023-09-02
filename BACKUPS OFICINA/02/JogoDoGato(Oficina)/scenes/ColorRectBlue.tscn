@@ -1,0 +1,10 @@
+[gd_scene format=2]
+
+[node name="ColorRectBlue" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -164.0
+margin_top = -76.0
+margin_right = 236.0
+margin_bottom = 134.0
+color = Color( 0.188235, 0.376471, 0.509804, 1 )

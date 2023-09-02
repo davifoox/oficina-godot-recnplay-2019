@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/Menu.gd" type="Script" id=1]
+[ext_resource path="res://scenes/SimpleBackground.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fonts/pixel_x72.tres" type="DynamicFont" id=3]
+[ext_resource path="res://fonts/pixel_x52.tres" type="DynamicFont" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[node name="Menu" type="Node"]
+script = ExtResource( 1 )
+
+[node name="SimpleBackground" parent="." instance=ExtResource( 2 )]
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 1, 2, 0, 1, 3, 0, 1, 4, 0, 1, 5, 0, 1, 6, 0, 1, 7, 0, 1, 8, 0, 1, 9, 0, 1, 10, 0, 2, 65536, 0, 65536, 65537, 0, 65537, 65538, 0, 65537, 65539, 0, 65537, 65540, 0, 65537, 65541, 0, 65537, 65542, 0, 65537, 65543, 0, 65537, 65544, 0, 65537, 65545, 0, 65537, 65546, 0, 65538, 131072, 0, 65536, 131073, 0, 196609, 131074, 0, 65537, 131075, 0, 65537, 131076, 0, 196608, 131077, 0, 65537, 131078, 0, 65537, 131079, 0, 196608, 131080, 0, 65537, 131081, 0, 196608, 131082, 0, 65538, 196608, 0, 65536, 196609, 0, 65537, 196610, 0, 65537, 196611, 0, 65537, 196612, 0, 65537, 196613, 0, 65537, 196614, 0, 65537, 196615, 0, 65537, 196616, 0, 65537, 196617, 0, 65537, 196618, 0, 65538, 262144, 0, 65536, 262145, 0, 65537, 262146, 0, 196608, 262147, 0, 196608, 262148, 0, 65537, 262149, 0, 65537, 262150, 0, 196610, 262151, 0, 65537, 262152, 0, 65537, 262153, 0, 65537, 262154, 0, 65538, 327680, 0, 65536, 327681, 0, 65537, 327682, 0, 65537, 327683, 0, 196610, 327684, 0, 196608, 327685, 0, 196610, 327686, 0, 65537, 327687, 0, 196609, 327688, 0, 65537, 327689, 0, 65537, 327690, 0, 65538, 393216, 0, 131072, 393217, 0, 131073, 393218, 0, 131073, 393219, 0, 131073, 393220, 0, 131073, 393221, 0, 131073, 393222, 0, 131073, 393223, 0, 131073, 393224, 0, 131073, 393225, 0, 131073, 393226, 0, 131074 )
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -713.985
+margin_top = -326.977
+margin_right = 654.015
+margin_bottom = -179.977
+custom_fonts/font = ExtResource( 3 )
+text = "e ai amor
+ meia noite e?"
+align = 1
+valign = 1
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ButtonStart" type="Button" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -146.552
+margin_top = -108.889
+margin_right = 125.448
+margin_bottom = -50.889
+custom_styles/focus = SubResource( 1 )
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.780392, 0.780392, 0.780392, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.917647, 0.917647, 0.917647, 1 )
+text = "START"
+flat = true
+
+[node name="ButtonTutorial" type="Button" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -556.917
+margin_top = 44.2136
+margin_right = -24.9168
+margin_bottom = 102.214
+custom_styles/focus = SubResource( 1 )
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.780392, 0.780392, 0.780392, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.917647, 0.917647, 0.917647, 1 )
+text = "TUTORIAL"
+flat = true
+
+[node name="ButtonExit" type="Button" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 191.093
+margin_top = 214.338
+margin_right = 463.093
+margin_bottom = 272.338
+custom_styles/focus = SubResource( 1 )
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.780392, 0.780392, 0.780392, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.917647, 0.917647, 0.917647, 1 )
+text = "SAIR"
+flat = true
+[connection signal="pressed" from="Control/ButtonStart" to="." method="_on_ButtonStart_pressed"]
+[connection signal="pressed" from="Control/ButtonTutorial" to="." method="_on_ButtonTutorial_pressed"]
+[connection signal="pressed" from="Control/ButtonExit" to="." method="_on_ButtonExit_pressed"]
